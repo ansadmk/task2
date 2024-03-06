@@ -10,7 +10,7 @@ const YourComponent = () => {
 
   const handleAdd = async (e: any) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/api/add", {
+    await axios.post("https://task2-xi-ruddy.vercel.app/api/add", {
       data: e.target.data.value,
     });
     setRender(render + 1);
@@ -21,7 +21,7 @@ const YourComponent = () => {
     e.preventDefault();
   if (isUpdate.is) {
     
-    await axios.post(`http://localhost:8080/api/edit/${isUpdate.id}`, {
+    await axios.post(`https://task2-xi-ruddy.vercel.app/api/edit/${isUpdate.id}`, {
       data: e.target.update.value,
     });
     setRender(render + 1);
@@ -31,7 +31,7 @@ const YourComponent = () => {
   };
   useEffect(() => {
     async function handledatas() {
-      const res = await axios.get("http://localhost:8080/api/datas");
+      const res = await axios.get("https://task2-xi-ruddy.vercel.app/api/datas");
       setDatas(res.data.data);
       setAddCount(res.data.calls.add);
       setUpdateCount(res.data.calls.update);
